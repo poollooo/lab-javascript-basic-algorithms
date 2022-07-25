@@ -84,17 +84,41 @@ console.log(compareName(hacker1, hacker2));
 //     }
 // }
 
-const loremParagraphe = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam molestie neque, sed rutrum nibh pellentesque non. Cras non neque vitae odio porta pretium. Mauris id orci risus. Nunc eget fermentum lacus, in iaculis ex. Nunc elit augue, tincidunt non semper id, posuere sit amet magna. Curabitur congue sapien eget est consectetur, ac interdum mi faucibus. Suspendisse tempor nulla lectus, sed posuere velit gravida vulputate. Sed non mollis sapien, sit amet porttitor justo. Aliquam non nibh ac ex suscipit fermentum. Aliquam ornare ut nisl eget varius. Aenean accumsan turpis arcu, id convallis tellus viverra a.Aliquam ultricies sodales suscipit.Donec non turpis quis eros fermentum sagittis.Aliquam sit amet laoreet lectus.Mauris nec ante egestas, euismod lacus sed, imperdiet ante.Quisque at feugiat dui.Proin quis rhoncus tellus.Donec cursus mauris quam, eget venenatis ex lacinia eu. Fusce vitae enim dignissim orci porttitor consequat.Maecenas euismod scelerisque turpis, sed fermentum augue sagittis in.Mauris porttitor mauris nec enim porta, in fringilla nunc tempor.Etiam tristique rutrum enim sit amet dictum.Suspendisse vestibulum urna sapien, sed porttitor diam luctus quis.Curabitur justo lorem, tincidunt quis magna eget, rhoncus fermentum nisi.Donec sollicitudin congue ipsum, vitae consectetur magna scelerisque id."
 
-function loremParagrapheLength(text) {
-    for (let i = 0; i <= text.length; i++) {
-        let counter = 0;
+// Bonus 1
+const loremParagraphe = `Lorem ipsum dolor etet etet et et et sit amet, consectetur adipiscing elit. Praesent vel purus tincidunt, porta ante sit amet, vestibulum orci. Vestibulum tempor rutrum diam ut congue. Cras non imperdiet ante. Integer aliquet enim lorem, vitae consectetur eros cursus quis. Suspendisse potenti. Sed eu pharetra orci. Aliquam auctor elementum nunc et facilisis.`
 
-        if (text[i] === " ") {
-            counter += 1;
+function numberOfWords(text) {
+    let counter = 0;
+
+    for (let i = 0; i <= text.length - 1; i++) {
+        if (text[i] === ` ` && text[i + 1] !== ` `) {
+            counter++;
         }
-        console.log(counter);
     }
+    counter++;
+    console.log(`There are ${counter} words in this paragraph.`);
 }
 
-console.log(loremParagrapheLength(loremParagraphe));
+console.log(numberOfWords(loremParagraphe));
+
+// function isEt(text) {
+//     for (let i = 0; i <= text.length; i++) {
+//         if (text[i] === `e` && text[i + 1] !== `t`) {
+//             return true;
+//         }
+//     }
+// }
+
+function numberOfEt(text) {
+    let wordCounter = 0;
+
+    for (let i = 0; i <= text.length - 1; i++) {
+        if ((text[i] === `e` && text[i + 1] !== `t`) && (text[i - 1] === " " && text[i + 2] === " ")) {
+            wordCounter++;
+        }
+    }
+    console.log(`There are ${wordCounter} of 'et' words`)
+}
+
+console.log(numberOfEt(loremParagraphe));
